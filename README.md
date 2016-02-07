@@ -6,7 +6,7 @@
 
 
 ## Usage
-I suggest to use [postcss-modules](https://github.com/outpunk/postcss-modules) to generate CSS modules.
+I suggest using [postcss-modules](https://github.com/outpunk/postcss-modules) to generate CSS modules.
 
 ### Global file
 Let's say we have `cssClasses.json` with all CSS modules inside:
@@ -38,7 +38,7 @@ posthtml([require('posthtml-css-modules')('./cssClasses.json')])
 ```
 
 ### Directory with several files
-CSS modules could be also separated in a several files.
+CSS modules could be also separated into several files.
 For example, `profile.js` and `article.js` inside directory `cssModules/`:
 ```js
 // profile.js
@@ -53,7 +53,7 @@ module.exports = {
   title: '_article__tile _heading'
 }
 ```
-You can use both JS and JSON for declaration, as long as the file could be required via `require()`.
+You can use both JS and JSON for a declaration, as long as the file could be required via `require()`.
 
 ```js
 var posthtml = require('posthtml');
