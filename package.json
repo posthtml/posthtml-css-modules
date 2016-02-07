@@ -1,0 +1,50 @@
+{
+  "name": "posthtml-css-modules",
+  "version": "0.1.0",
+  "description": "Use CSS modules in HTML",
+  "main": "index.js",
+  "author": "Kirill Maltsev <maltsevkirill@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "rm -f lib/*.js && node_modules/.bin/babel -d lib/ lib/",
+    "lint": "node_modules/.bin/eslint *.js lib/*.es6 test/",
+    "pretest": "npm run lint && npm run compile",
+    "test": "node_modules/.bin/_mocha --compilers js:babel-core/register --recursive --check-leaks",
+    "prepublish": "npm run compile"
+  },
+  "keywords": [
+    "posthtml",
+    "posthtml-plugin",
+    "html",
+    "postproccessor",
+    "css",
+    "css-modules"
+  ],
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "lodash.get": "^4.0.2",
+    "posthtml-attrs-parser": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.8",
+    "babel-preset-es2015": "^6.3.13",
+    "eslint": "^1.10.3",
+    "expect": "^1.14.0",
+    "mocha": "^2.4.5",
+    "posthtml": "^0.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maltsev/posthtml-css-modules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maltsev/posthtml-css-modules/issues"
+  },
+  "homepage": "https://github.com/maltsev/posthtml-css-modules"
+}
