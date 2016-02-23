@@ -1,4 +1,4 @@
-# PostHTML CSS Modules
+# posthtml-css-modules
 [![npm version](https://badge.fury.io/js/posthtml-css-modules.svg)](http://badge.fury.io/js/posthtml-css-modules)
 [![Build Status](https://travis-ci.org/maltsev/posthtml-css-modules.svg?branch=master)](https://travis-ci.org/maltsev/posthtml-css-modules)
 
