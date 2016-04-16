@@ -6,10 +6,10 @@
   "author": "Kirill Maltsev <maltsevkirill@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "rm -f lib/*.js && node_modules/.bin/babel -d lib/ lib/",
-    "lint": "node_modules/.bin/eslint *.js lib/*.es6 test/",
+    "compile": "rimraf lib/*.js && babel -d lib/ lib/",
+    "lint": "eslint *.js lib/*.es6 test/",
     "pretest": "npm run lint && npm run compile",
-    "test": "node_modules/.bin/_mocha --compilers js:babel-core/register --recursive --check-leaks",
+    "test": "mocha --compilers js:babel-core/register --recursive --check-leaks",
     "prepublish": "npm run compile"
   },
   "keywords": [
@@ -37,7 +37,8 @@
     "eslint": "^2.0.0",
     "expect": "^1.14.0",
     "mocha": "^2.4.5",
-    "posthtml": "^0.8.2"
+    "posthtml": "^0.8.2",
+    "rimraf": "^2.5.2"
   },
   "repository": {
     "type": "git",
