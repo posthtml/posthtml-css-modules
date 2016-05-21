@@ -7,7 +7,11 @@
 
 ## Usage
 I suggest using [postcss-modules](https://github.com/outpunk/postcss-modules) to generate CSS modules.
-Check [the PostHTML documentation](https://github.com/posthtml/posthtml#usage) for integration examples with gulp, webpack, and other build systems.
+Check [the PostHTML documentation](https://github.com/posthtml/posthtml#usage) for integration examples with grunt, gulp, and other build systems.
+
+If you're more into webpack then you don't need all these modules at all.
+With `css`, `style`, and `html` loaders you can achieve the same result:
+[css-modules-webpack-example](https://github.com/maltsev/css-modules-webpack-example)
 
 ### Global file
 Let's say we have `cssClasses.json` with all CSS modules inside:
