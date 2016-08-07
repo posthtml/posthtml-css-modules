@@ -1,6 +1,6 @@
 # posthtml-css-modules
 [![npm version](https://badge.fury.io/js/posthtml-css-modules.svg)](http://badge.fury.io/js/posthtml-css-modules)
-[![Build Status](https://travis-ci.org/maltsev/posthtml-css-modules.svg?branch=master)](https://travis-ci.org/maltsev/posthtml-css-modules)
+[![Build Status](https://travis-ci.org/posthtml/posthtml-css-modules.svg?branch=master)](https://travis-ci.org/posthtml/posthtml-css-modules)
 
 [PostHTML](https://github.com/posthtml/posthtml) plugin that inlines [CSS modules](https://github.com/css-modules/css-modules) in HTML.
 

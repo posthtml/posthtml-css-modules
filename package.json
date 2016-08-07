@@ -42,10 +42,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/maltsev/posthtml-css-modules.git"
+    "url": "git://github.com/posthtml/posthtml-css-modules.git"
   },
   "bugs": {
-    "url": "https://github.com/maltsev/posthtml-css-modules/issues"
+    "url": "https://github.com/posthtml/posthtml-css-modules/issues"
   },
-  "homepage": "https://github.com/maltsev/posthtml-css-modules"
+  "homepage": "https://github.com/posthtml/posthtml-css-modules"
 }
