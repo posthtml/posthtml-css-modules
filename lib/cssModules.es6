@@ -30,7 +30,7 @@ function getCssClassName(cssModulesPath, cssModuleName) {
         cssModulesPath = path.join(cssModulesDir, cssModulesFile);
     }
 
-    const cssModules = require(path.resolve(cssModulesPath));
+    const cssModules = requireUncached(cssModulesPath);
     const cssClassName = _get(cssModules, cssModuleName);
     if (! cssClassName) {
         throw getError('CSS module "' + cssModuleName + '" is not found');
@@ -41,6 +41,10 @@ function getCssClassName(cssModulesPath, cssModuleName) {
     return cssClassName;
 }
 
+function requireUncached(module){
+    delete require.cache[require.resolve(module)];
+    return require(module);
+}
 
 function getError(message) {
     const fullMessage = '[posthtml-css-modules] ' + message;
