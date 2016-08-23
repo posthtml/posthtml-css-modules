@@ -29,8 +29,9 @@ function getCssClassName(cssModulesPath, cssModuleName) {
         cssModuleName = cssModuleNameParts.join('.');
         cssModulesPath = path.join(cssModulesDir, cssModulesFile);
     }
-
-    const cssModules = requireUncached(cssModulesPath);
+    const filePath = path.resolve(cssModulesPath) + (/\.json$/.test(cssModulesPath) ? '' : '.json');
+    var fileIsExists = fsExistsSync(filePath);
+    const cssModules = fileIsExists ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : require(path.resolve(cssModulesPath));
     const cssClassName = _get(cssModules, cssModuleName);
     if (! cssClassName) {
         throw getError('CSS module "' + cssModuleName + '" is not found');
@@ -41,9 +42,13 @@ function getCssClassName(cssModulesPath, cssModuleName) {
     return cssClassName;
 }
 
-function requireUncached(module){
-    delete require.cache[require.resolve(module)];
-    return require(module);
+function fsExistsSync(path) {
+    try {
+        fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }
 
 function getError(message) {
