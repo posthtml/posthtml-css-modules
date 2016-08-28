@@ -1,6 +1,6 @@
 {
   "name": "posthtml-css-modules",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Use CSS modules in HTML",
   "main": "index.js",
   "author": "Kirill Maltsev <maltsevkirill@gmail.com>",
