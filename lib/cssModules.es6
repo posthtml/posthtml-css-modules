@@ -3,9 +3,13 @@ import path from 'path';
 import _get from 'lodash.get';
 import parseAttrs from 'posthtml-attrs-parser';
 
+let cssModulesCache = {};
 
 export default (cssModulesPath) => {
     return function cssModules(tree) {
+        // If the plugin is used in gulp watch or another similar tool, files with CSS modules
+        // might change between runs. Therefore we purge the cache before each run.
+        cssModulesCache = {};
         tree.match({attrs: {'css-module': /\w+/}}, node => {
             const attrs = parseAttrs(node.attrs);
             const cssModuleName = attrs['css-module'];
@@ -30,7 +34,7 @@ function getCssClassName(cssModulesPath, cssModuleName) {
         cssModulesPath = path.join(cssModulesDir, cssModulesFile);
     }
 
-    const cssModules = require(path.resolve(cssModulesPath));
+    const cssModules = getCssModules(path.resolve(cssModulesPath));
     const cssClassName = _get(cssModules, cssModuleName);
     if (! cssClassName) {
         throw getError('CSS module "' + cssModuleName + '" is not found');
@@ -39,6 +43,17 @@ function getCssClassName(cssModulesPath, cssModuleName) {
     }
 
     return cssClassName;
+}
+
+
+function getCssModules(cssModulesPath) {
+    let fullPath = require.resolve(cssModulesPath);
+    if (! cssModulesCache[fullPath]) {
+        delete require.cache[fullPath];
+        cssModulesCache[fullPath] = require(fullPath);
+    }
+
+    return cssModulesCache[fullPath];
 }
 
 
