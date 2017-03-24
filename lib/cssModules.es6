@@ -35,14 +35,18 @@ function getCssClassName(cssModulesPath, cssModuleName) {
     }
 
     const cssModules = getCssModules(path.resolve(cssModulesPath));
-    const cssClassName = _get(cssModules, cssModuleName);
-    if (! cssClassName) {
-        throw getError('CSS module "' + cssModuleName + '" is not found');
-    } else if (typeof cssClassName !== 'string') {
-        throw getError('CSS module "' + cssModuleName + '" is not a string');
-    }
 
-    return cssClassName;
+    return cssModuleName.split(' ')
+        .map(cssModuleName => {
+            const cssClassName = _get(cssModules, cssModuleName);
+            if (! cssClassName) {
+                throw getError('CSS module "' + cssModuleName + '" is not found');
+            } else if (typeof cssClassName !== 'string') {
+                throw getError('CSS module "' + cssModuleName + '" is not a string');
+            }    
+            return cssClassName;
+        })
+        .join(' ');
 }
 
 

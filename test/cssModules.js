@@ -25,6 +25,14 @@ describe('posthtml-css-modules', () => {
         );
     });
 
+    it('should inline CSS module from the file (multiple classes)', () => {
+        return init(
+            '<div class="foob" css-module="title color"></div>',
+            '<div class="foob __title __heading __color"></div>',
+            classesPath
+        );
+    });
+
 
     it('should inline CSS module from the directory', () => {
         return init(

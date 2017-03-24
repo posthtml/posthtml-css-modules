@@ -1,5 +1,6 @@
 {
     "title": "__title __heading",
+    "color": "__color",
     "user": {
         "profile": {
             "photo": "__user__profile__photo"
