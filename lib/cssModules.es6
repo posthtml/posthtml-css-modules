@@ -36,7 +36,7 @@ function getCssClassName(cssModulesPath, cssModuleName) {
 
     const cssModules = getCssModules(path.resolve(cssModulesPath));
 
-    return cssModuleName.split(' ')
+    return cssModuleName.trim().split(' ')
         .map(cssModuleName => {
             const cssClassName = _get(cssModules, cssModuleName);
             if (! cssClassName) {

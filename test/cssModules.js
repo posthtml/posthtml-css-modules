@@ -33,6 +33,14 @@ describe('posthtml-css-modules', () => {
         );
     });
 
+    it('should do not broken if classes not trimmed', () => {
+        return init(
+            '<div class="foob" css-module="title color "></div>',
+            '<div class="foob __title __heading __color"></div>',
+            classesPath
+        );
+    });
+
 
     it('should inline CSS module from the directory', () => {
         return init(
