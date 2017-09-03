@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [0.1.3] - 2017-09-03
+### Added
+- [Pass CSS modules as an object](https://github.com/posthtml/posthtml-css-modules/pull/10)
+
+
 ## [0.1.2] - 2017-03-24
 ### Added
 - [Multiple CSS modules](https://github.com/posthtml/posthtml-css-modules/pull/8)
@@ -14,5 +20,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+[0.1.3]: https://github.com/posthtml/posthtml-css-modules/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/posthtml/posthtml-css-modules/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/posthtml/posthtml-css-modules/compare/0.1.0...0.1.1
