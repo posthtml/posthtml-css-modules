@@ -75,3 +75,29 @@ posthtml([require('posthtml-css-modules')('./cssModules/')])
 // <div class="baseWrapper _profile_user_f93j">John</div>
 // <h2 class="_article__tile _heading"></h2>
 ```
+
+
+### Object
+You can also pass CSS modules as an object to the plugin:
+```
+var posthtml = require('posthtml'),
+    cssModules = {
+        title: "_title_116zl_1 _heading_9dkf",
+        profile: {
+            user: "_profile_user_f93j"
+        }
+    };
+
+posthtml([require('posthtml-css-modules')(cssModules)])
+    .process(
+        '<h1 css-module="title">My profile</h1>' +
+        // You can also use nested modules
+        '<div css-module="profile.user">John</div>'
+    )
+    .then(function (result) {
+        console.log(result.html);
+    });
+
+// <h1 class="_title_116zl_1 _heading_9dkf">My profile</h1>
+// <div class="_profile_user_f93j">John</div>
+```
