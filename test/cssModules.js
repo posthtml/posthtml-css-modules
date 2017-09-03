@@ -5,6 +5,7 @@ import cssModules from '..';
 
 const classesPath = path.join(__dirname, 'classes.json');
 const classesDir = path.dirname(classesPath);
+const classesObj = require(classesPath);
 
 
 describe('posthtml-css-modules', () => {
@@ -47,6 +48,15 @@ describe('posthtml-css-modules', () => {
             '<div css-module="classes.title"></div>',
             '<div class="__title __heading"></div>',
             classesDir
+        );
+    });
+
+
+    it('should inline CSS module from the object', () => {
+        return init(
+            '<div css-module="title"></div>',
+            '<div class="__title __heading"></div>',
+            classesObj
         );
     });
 

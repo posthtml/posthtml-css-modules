@@ -26,6 +26,15 @@ export default (cssModulesPath) => {
 
 
 function getCssClassName(cssModulesPath, cssModuleName) {
+    if (typeof cssModulesPath === 'string') {
+        return getCssClassNameFromPath(cssModulesPath, cssModuleName);
+    } else {
+        return getCssClassNameFromObject(cssModulesPath, cssModuleName);
+    }
+}
+
+
+function getCssClassNameFromPath(cssModulesPath, cssModuleName) {
     if (fs.lstatSync(cssModulesPath).isDirectory()) {
         let cssModulesDir = cssModulesPath;
         let cssModuleNameParts = cssModuleName.split('.');
@@ -36,6 +45,11 @@ function getCssClassName(cssModulesPath, cssModuleName) {
 
     const cssModules = getCssModules(path.resolve(cssModulesPath));
 
+    return getCssClassNameFromObject(cssModules, cssModuleName);
+}
+
+
+function getCssClassNameFromObject(cssModules, cssModuleName) {
     return cssModuleName.trim().split(' ')
         .map(cssModuleName => {
             const cssClassName = _get(cssModules, cssModuleName);
@@ -43,7 +57,7 @@ function getCssClassName(cssModulesPath, cssModuleName) {
                 throw getError('CSS module "' + cssModuleName + '" is not found');
             } else if (typeof cssClassName !== 'string') {
                 throw getError('CSS module "' + cssModuleName + '" is not a string');
-            }    
+            }
             return cssClassName;
         })
         .join(' ');
