@@ -79,7 +79,7 @@ posthtml([require('posthtml-css-modules')('./cssModules/')])
 
 ### Object
 You can also pass CSS modules as an object to the plugin:
-```
+```js
 var posthtml = require('posthtml'),
     cssModules = {
         title: "_title_116zl_1 _heading_9dkf",
